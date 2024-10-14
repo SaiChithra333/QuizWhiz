@@ -1,9 +1,11 @@
+import axios from 'axios'
 import React from 'react'
 
-function UserPage() {
+async function UserPage() {
+  const data = await axios.get("")
   return (
     <div>
-      
+      Hello from UserPage
     </div>
   )
 }

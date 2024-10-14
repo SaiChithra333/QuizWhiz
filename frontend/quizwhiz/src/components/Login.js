@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // For redirecting after login
+import { Link, useNavigate } from 'react-router-dom'; // For redirecting after login
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -25,7 +25,7 @@ function Login() {
       if (response.status === 200) {
         console.log("Login successful!");
         // Redirect to a different page after successful login
-        navigate("/UserPage"); // Redirecting to dashboard page or any other page
+        // navigate("/UserPage"); // Redirecting to dashboard page or any other page
       } 
     } catch (error) {
       setErrorMsg("Invalid email or password");
@@ -41,9 +41,9 @@ function Login() {
 
         <label>Email: </label>
         <input 
-          type="email" 
+          type="text" 
           name="username" 
-          placeholder="example@gmail.com" 
+          placeholder="email/username" 
           value={email} 
           onChange={e => setEmail(e.target.value)} 
         /><br /><br />
@@ -55,6 +55,8 @@ function Login() {
           value={password} 
           onChange={e => setPassword(e.target.value)} 
         /><br /><br />
+
+        <Link to="http://localhost:5000/auth/google">Sign In with Google</Link>
 
        {errorMsg && <p style={{ color: "red" }}>{errorMsg}</p>} {/* Show error message if login fails */}
 

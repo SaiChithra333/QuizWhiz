@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-function Signup() {
+function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,11 +26,8 @@ function Signup() {
       email: email
     };
 
-    console.log("Hello1")
     try {
-      console.log("Hello2")
-      const response = await axios.post("http://localhost:5000/Signup", data);
-      // const response = ""
+      const response = await axios.post("http://localhost:5000/register", data);
 
       // Assuming a successful response means the signup is successful
       if (response.status === 200) {
@@ -100,6 +98,8 @@ function Signup() {
           onChange={e => setDob(e.target.value)}
         /><br /><br />
 
+        <Link to="http://localhost:5000/auth/google">Sign Up with Google</Link>
+
         {errorMsg && <p style={{ color: "red" }}>{errorMsg}</p>}
         {successMsg && <p style={{ color: "green" }}>{successMsg}</p>} {/* Display success message */}
 
@@ -109,4 +109,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Register;

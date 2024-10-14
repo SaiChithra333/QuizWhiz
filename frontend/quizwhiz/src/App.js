@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom'
 import Takequiz from './components/Takequiz'
 import Quizqn from './components/Quizqn'
 import Login from './components/Login'
-import Signup from './components/Signup'
+import Register from './components/Register'
+import UserPage from './components/UserPage'
+import GoogleAuthRedirect from './components/GoogleAuthRedirect'
 
 function App() {
   return (
@@ -13,10 +15,12 @@ function App() {
       <Router>      
         <Routes>
       <Route path='/' element={<Home/>}/>
-      <Route path='/Signup' element={<Signup/>}/>
+      <Route path='/Register' element={<Register/>}/>
       <Route path='/Login' element={<Login/>}/>
       <Route path='/Takequiz' element={<Takequiz />}/>
       <Route path='/Quizqn' element={<Quizqn />}/>
+      <Route path='/UserPage' element={<UserPage />}/>
+      <Route path="/auth/google/secrets" element={<GoogleAuthRedirect />} />
       </Routes>
       </Router>
       
